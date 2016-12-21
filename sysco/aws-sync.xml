@@ -16,7 +16,7 @@
   </Description>
   <Registry>https://registry.hub.docker.com/u/cadavre/sysco-sync-app/</Registry>
   <GitHub>https://github.com/cadavre/sync-app-repo</GitHub>
-  <Repository>cadavre/sync-app-repo</Repository>
+  <Repository>cadavre/sysco-sync-app</Repository>
   <BindTime>true</BindTime>
   <Privileged>false</Privileged>
   <Environment>
