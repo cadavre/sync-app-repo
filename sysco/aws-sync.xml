@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Container version="2">
+  <Date>2016-12-21</Date>
+  <Beta>True</Beta>
+  <Category>Backup: Cloud:</Category>
+  <Name>Sync</Name>
+  <Changes>
+    [font size=3]2016.12.21[/font]
+    - First beta version
+  </Changes>
+  <Overview>
+    A tool to upload selected directories into Amazon AWS cloud – S3 or Glacier.
+  </Overview>
+  <Description>
+    Installation guide here soon... WIP
+  </Description>
+  <Registry>https://registry.hub.docker.com/u/cadavre/sysco-sync-app/</Registry>
+  <GitHub>https://github.com/cadavre/sync-app-repo</GitHub>
+  <Repository>cadavre/sync-app-repo</Repository>
+  <BindTime>true</BindTime>
+  <Privileged>false</Privileged>
+  <Environment>
+    <Variable>
+      <Name>CRON_SCHEDULE</Name>
+      <Value>0 * * * 1</Value>
+    </Variable>
+  </Environment>
+  <Networking>
+    <Mode>bridge</Mode>
+    <Publish>
+      <Port>
+        <HostPort>8081</HostPort>
+        <ContainerPort>8081</ContainerPort>
+        <Protocol>tcp</Protocol>
+      </Port>
+    </Publish>
+  </Networking>
+  <Data>
+    <Volume>
+      <HostDir>/mnt/user/appdata/sysco-sync-app</HostDir>
+      <ContainerDir>/config</ContainerDir>
+      <Mode>rw</Mode>
+    </Volume>
+  </Data>
+  <WebUI>http://[IP]:[PORT:8081]/</WebUI>
+  <Icon>http://d2631fvi2jdnb6.cloudfront.net/docker/limetech/sync.png</Icon>
+
+  <Network Default="bridge">bridge</Network>
+
+  <Config Type="Port" Name="Web Interface Port" Target="8081" Default="8081" Mode="tcp" Display="always-show" Required="true"
+       Description="This is web UI port you can access via a web browser.">8081</Config>
+
+  <Config Type="Path" Name="App storage path" Target="/config" Default="/mnt/user/appdata/sysco-sync-app" Mode="rw" Display="always-show" Required="true"
+       Description="This is where sync app will look for a config.yml file and store its databases and logs.">/mnt/user/appdata/sysco-sync-app</Config>
+</Container>
